@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    const int N = 5;
+    short a[N][N];
+
+    cout << "Введите элементы массива 5x5:\n";
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            cin >> a[i][j];
+        }
+    }
+
+    // Поиск суммы элементов, меньших 10
+    int sum = 0;
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if (a[i][j] < 10)
+            {
+                sum += a[i][j];
+            }
+        }
+    }
+
+    cout << "\nСумма элементов меньше 10: " << sum << endl;
+
+    // Транспонирование массива
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = i + 1; j < N; j++)
+        {
+            short temp = a[i][j];
+            a[i][j] = a[j][i];
+            a[j][i] = temp;
+        }
+    }
+
+    cout << "\nМассив после транспонирования:\n";
+
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            cout << a[i][j] << "\t";
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+ }. 

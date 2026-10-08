@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    const int N = 200;
+    int a[N];
+
+    srand(time(0));
+
+    // Заполняем массив числами от 1 до 200
+    for (int i = 0; i < N; i++)
+    {
+        a[i] = i + 1;
+    }
+
+    bool correct = false;
+
+    while (!correct)
+    {
+        // Перемешивание массива
+        for (int i = 0; i < N; i++)
+        {
+            int j = rand() % N;
+
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+
+        correct = true;
+
+        // Проверяем разность соседних элементов
+        for (int i = 0; i < N - 1; i++)
+        {
+            if (abs(a[i] - a[i + 1]) < 5)
+            {
+                correct = false;
+                break;
+            }
+        }
+    }
+
+    cout << "Полученный массив:\n\n";
+
+    for (int i = 0; i < N; i++)
+    {
+        cout << a[i] << "\t";
+
+        if ((i + 1) % 10 == 0)
+        {
+            cout << endl;
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,97 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+
+{
+
+    const int N = 3;
+
+    float a[N][N];
+
+    cout << "Введите элементы массива 3x3:\n";
+
+    for (int i = 0; i < N; i++)
+
+    {
+
+        for (int j = 0; j < N; j++)
+
+        {
+
+            cin >> a[i][j];
+
+        }
+
+    }
+
+    // Сортировка элементов по возрастанию
+
+    for (int i1 = 0; i1 < N; i1++)
+
+    {
+
+        for (int j1 = 0; j1 < N; j1++)
+
+        {
+
+            for (int i2 = i1; i2 < N; i2++)
+
+            {
+
+                int startJ;
+
+                if (i2 == i1)
+
+                    startJ = j1 + 1;
+
+                else
+
+                    startJ = 0;
+
+                for (int j2 = startJ; j2 < N; j2++)
+
+                {
+
+                    if (a[i1][j1] > a[i2][j2])
+
+                    {
+
+                        float temp = a[i1][j1];
+
+                        a[i1][j1] = a[i2][j2];
+
+                        a[i2][j2] = temp;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    cout << "\nОтсортированный массив:\n";
+
+    for (int i = 0; i < N; i++)
+
+    {
+
+        for (int j = 0; j < N; j++)
+
+        {
+
+            cout << a[i][j] << "\t";
+
+        }
+
+        cout << endl;
+
+    }
+
+    return 0;
+
+}
